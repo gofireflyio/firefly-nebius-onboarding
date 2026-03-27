@@ -1,8 +1,43 @@
+# Authentication method: "service_account", "env", or "profile"
+variable "nebius_auth_method" {
+  type        = string
+  description = "Authentication method: 'service_account' (recommended), 'env' (CI/CD), or 'profile' (local dev)"
+  default     = "env"
+  validation {
+    condition     = contains(["service_account", "env", "profile"], var.nebius_auth_method)
+    error_message = "nebius_auth_method must be 'service_account', 'env', or 'profile'"
+  }
+}
+
+# CLI Profile authentication (for local development)
 variable "nebius_profile" {
   type        = string
-  description = "Nebius CLI profile name"
+  description = "Nebius CLI profile name (used when nebius_auth_method = 'profile')"
   default     = null
 }
+
+# Service account authentication (recommended for CI/CD and production)
+variable "nebius_service_account_id" {
+  type        = string
+  description = "Service account ID (used when nebius_auth_method = 'service_account')"
+  default     = null
+}
+
+variable "nebius_public_key_id" {
+  type        = string
+  description = "Public key ID for service account authentication"
+  default     = null
+}
+
+variable "nebius_private_key_file" {
+  type        = string
+  description = "Path to private key PEM file for service account authentication"
+  default     = null
+  sensitive   = true
+}
+
+# Environment variable names (used when nebius_auth_method = 'env')
+# Default env vars: NB_SA_ID, NB_SA_PUBLIC_KEY_ID, NB_SA_PRIVATE_KEY_FILE
 
 variable "tenant_id" {
   type        = string

@@ -4,13 +4,32 @@ project_id         = "project-xxxxxxxxxxxx"
 firefly_access_key = "your_firefly_access_key"
 firefly_secret_key = "your_firefly_secret_key"
 
+# Authentication - Choose ONE method:
+# nebius_auth_method = "env"              # Default - uses environment variables (best for CI/CD)
+# nebius_auth_method = "service_account"  # Uses variables below
+# nebius_auth_method = "profile"          # Uses CLI profile
+
+# For "env" method (default), set these environment variables:
+#   export NB_SA_ID=serviceaccount-xxxxxxxxxxxx
+#   export NB_SA_PUBLIC_KEY_ID=publickey-xxxxxxxxxxxx
+#   export NB_SA_PRIVATE_KEY_FILE=/path/to/private.pem
+
+# For "service_account" method, uncomment:
+# nebius_auth_method        = "service_account"
+# nebius_service_account_id = "serviceaccount-xxxxxxxxxxxx"
+# nebius_public_key_id      = "publickey-xxxxxxxxxxxx"
+# nebius_private_key_file   = "/path/to/private.pem"
+
+# For "profile" method (local development), uncomment:
+# nebius_auth_method = "profile"
+# nebius_profile     = "default"
+
 # Optional
-# nebius_profile = "default"  # Nebius CLI profile name (uses default if not set)
-# integration_name = ""       # Integration name (defaults to tenant name from Nebius)
+# integration_name = ""
 # prefix = ""
 # suffix = ""
 # existing_service_account_id = "serviceaccount-xxxxxxxxxxxx"
 # existing_group_id = "group-xxxxxxxxxxxx"
 # is_prod = true
-# enable_audit_logs = true       # Audit log permissions (enabled by default)
+# enable_audit_logs = true
 # skip_integration_request = false

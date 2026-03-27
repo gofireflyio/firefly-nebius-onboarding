@@ -1,0 +1,16 @@
+# Required
+tenant_id          = "tenant-xxxxxxxxxxxx"
+project_id         = "project-xxxxxxxxxxxx"
+firefly_access_key = "your_firefly_access_key"
+firefly_secret_key = "your_firefly_secret_key"
+
+# Optional
+# nebius_profile = "default"  # Nebius CLI profile name (uses default if not set)
+# integration_name = ""       # Integration name (defaults to tenant name from Nebius)
+# prefix = ""
+# suffix = ""
+# existing_service_account_id = "serviceaccount-xxxxxxxxxxxx"
+# existing_group_id = "group-xxxxxxxxxxxx"
+# is_prod = true
+# enable_audit_logs = true       # Audit log permissions (enabled by default)
+# skip_integration_request = false

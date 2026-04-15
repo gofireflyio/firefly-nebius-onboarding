@@ -29,6 +29,13 @@ data "http" "firefly_nebius_integration_request" {
     "isProd"           = var.is_prod,
     "policyVersion"    = var.policy_version
   })
+
+  lifecycle {
+    postcondition {
+      condition     = self.status_code >= 200 && self.status_code < 300
+      error_message = "Firefly API returned error (${self.status_code}): ${self.response_body}"
+    }
+  }
 }
 
 locals {

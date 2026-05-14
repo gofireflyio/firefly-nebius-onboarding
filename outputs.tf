@@ -23,6 +23,16 @@ output "private_key_pem" {
   sensitive = true
 }
 
+output "access_key_id" {
+  value     = nebius_iam_v2_access_key.firefly_access_key.status.aws_access_key_id
+  sensitive = true
+}
+
+output "secret_access_key" {
+  value     = nebius_iam_v2_access_key.firefly_access_key.status.secret
+  sensitive = true
+}
+
 output "integration_id" {
   value = module.firefly_nebius_integration.integration_id
 }

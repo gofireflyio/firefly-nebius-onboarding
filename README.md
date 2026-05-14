@@ -113,6 +113,7 @@ This module creates the following resources in your Nebius tenant:
 | Access Permit    | `audit-log.viewer` for event-driven (if enabled)                   |
 | Access Permit    | `audit-log.exporter` for event-driven (if enabled)                 |
 | Auth Public Key  | RSA key pair for service account authentication                    |
+| Access Key       | S3-compatible storage access key for the service account           |
 
 ## Outputs
 
@@ -125,6 +126,8 @@ This module creates the following resources in your Nebius tenant:
 | `public_key_id`      | Created public key ID                                     |
 | `fingerprint`        | Public key fingerprint                                    |
 | `private_key_pem`    | Private key PEM (sensitive)                               |
+| `access_key_id`      | S3-compatible storage access key ID (sensitive)           |
+| `secret_access_key`  | S3-compatible storage secret access key (sensitive)       |
 
 ## Policy Evolution
 

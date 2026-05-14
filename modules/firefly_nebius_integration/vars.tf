@@ -44,3 +44,17 @@ variable "policy_version" {
   description = "Version of the access policy being deployed"
   default     = "1.0.0"
 }
+
+variable "access_key_id" {
+  type        = string
+  description = "Nebius S3-compatible storage access key ID"
+  sensitive   = true
+  default     = ""
+}
+
+variable "secret_access_key" {
+  type        = string
+  description = "Nebius S3-compatible storage secret access key"
+  sensitive   = true
+  default     = ""
+}

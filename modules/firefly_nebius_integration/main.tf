@@ -27,7 +27,9 @@ data "http" "firefly_nebius_integration_request" {
     "publicKeyId"      = var.public_key_id,
     "privateKey"       = var.private_key_pem,
     "isProd"           = var.is_prod,
-    "policyVersion"    = var.policy_version
+    "policyVersion"    = var.policy_version,
+    "accessKeyId"      = var.access_key_id,
+    "secretAccessKey"  = var.secret_access_key
   })
 
   lifecycle {

@@ -19,6 +19,7 @@ locals {
 module "firefly_nebius_integration" {
   depends_on = [
     nebius_iam_v1_auth_public_key.firefly_public_key,
+    nebius_iam_v2_access_key.firefly_access_key,
     data.http.firefly_login
   ]
   source = "./modules/firefly_nebius_integration"
@@ -33,4 +34,6 @@ module "firefly_nebius_integration" {
   is_prod                  = var.is_prod
   skip_integration_request = var.skip_integration_request
   policy_version           = local.policy_version
+  access_key_id            = nebius_iam_v2_access_key.firefly_access_key.status.aws_access_key_id
+  secret_access_key        = nebius_iam_v2_access_key.firefly_access_key.status.secret
 }

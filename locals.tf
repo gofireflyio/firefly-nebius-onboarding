@@ -1,7 +1,8 @@
 locals {
   # Policy version - increment when changing permissions
   # v1.0.0 - Initial
-  policy_version = "1.0.0"
+  # v1.1.0 - Added access_key_id and secret_access_key for S3-compatible storage
+  policy_version = "1.1.0"
 
   name_prefix = var.prefix != "" ? "${var.prefix}-" : ""
   name_suffix = var.suffix != "" ? "-${var.suffix}" : ""

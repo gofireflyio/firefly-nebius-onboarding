@@ -26,7 +26,7 @@ provider "nebius" {
     account_id       = var.nebius_service_account_id
     public_key_id    = var.nebius_public_key_id
     private_key_file = var.nebius_private_key_file
-  } : var.nebius_auth_method == "env" ? {
+    } : var.nebius_auth_method == "env" ? {
     account_id_env       = "NB_SA_ID"
     public_key_id_env    = "NB_SA_PUBLIC_KEY_ID"
     private_key_file_env = "NB_SA_PRIVATE_KEY_FILE"
